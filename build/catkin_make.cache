@@ -1,0 +1,2 @@
+rur:rur_description:rur_detailed_description:rur_gazebo:rur_navigation:rur_test_navigation:teleop_twist_keyboard
+-DCATKIN_DEVEL_PREFIX=/home/happymix/rur_ws/devel -DCMAKE_INSTALL_PREFIX=/home/happymix/rur_ws/install -G Unix Makefiles

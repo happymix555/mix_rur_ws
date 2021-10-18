@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+
+<launch>
+
+    <!-- Arguments for ease for change various config-->
+    <arg name="map_file" default="$(find rur_navigation)/maps/house_map.yaml"/>
+    <arg name="move_forward_only" default="true"/>
+
+    <!-- Load the urdf into the parameter server. named it "robot_description"
+         this mean if someone want to use the URDF file, can call it by the name "robot_description" -->
+    <param command="$(find xacro)/xacro $(find rur_detailed_description)/urdf/rur_detailed.xacro" name="robot_description"/>
+
+    <!--using robot_state_publisher to publish tf from URDF model recieved from parameter server
+        by default robot_state_publisher use the name "robot_description to find URDF model"
+        so we can use robot_state_publisher by calling just 1 line like the code below-->
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher"></node>
+
+    <!-- start gazebo with map-->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+		<arg name="paused" value="false"/>
+		<arg name="use_sim_time" value="true"/>
+		<arg name="gui" value="true"/>
+		<arg name="headless" value="false"/>
+		<arg name="debug" value="false"/>
+		<arg name="world_name" value="$(find rur_gazebo)/worlds/turtlebot3_house.world"/>
+	</include>
+
+    <!-- use robot model from parameter server and spawn it in gazebo-->
+    <node args="-param robot_description -urdf -model rur_detailed" name="spawn_urdf" pkg="gazebo_ros" type="spawn_model"/>
+
+    <!-- launch map_server node with map file -->
+    <node pkg="map_server" name="map_server" type="map_server" args="$(arg map_file)"/>
+
+    <!-- launch ACML for localization from separated launch file-->
+    <include file="$(find rur_navigation)/launch/amcl.launch"/>
+
+    <!-- launch move_base node for planning and moving the robot
+         move_base use sensor's information, tf, odom, map, goal pose
+         to compute path and send cmd_vel to move the robot along that paht-->
+    <include file="$(find rur_navigation)/launch/move_base.launch">
+        <arg name="move_forward_only" value="$(arg move_forward_only)"/>
+    </include>
+
+    <!-- launch rviz for visuallize robot state, sensor data, path ..etc and for
+         send goal_pose to move_base-->
+    <node pkg="rviz" type="rviz" name="rviz" required="true"
+          args="-d $(find rur_navigation)/rviz/rur_navigation.rviz"/>
+
+</launch>

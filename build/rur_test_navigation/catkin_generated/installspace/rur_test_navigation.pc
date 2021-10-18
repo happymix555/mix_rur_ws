@@ -1,0 +1,8 @@
+prefix=/home/happymix/rur_ws/install
+
+Name: rur_test_navigation
+Description: Description of rur_test_navigation
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
