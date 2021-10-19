@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="carver_pharmacy">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.0510669470849319 0.00131732312127419 0.28406765218654"
+        rpy="0 0 0" />
+      <mass
+        value="57.6197764143966" />
+      <inertia
+        ixx="0.209952375373657"
+        ixy="-0.000175290849388169"
+        ixz="-0.00216513956519068"
+        iyy="0.494415971166935"
+        iyz="-9.20985411712085E-05"
+        izz="0.451886984234278" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://carver_pharmacy_description/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://carver_pharmacy_description/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="right_drive_wheel_link">
+    <inertial>
+      <origin
+        xyz="5.55111512312578E-17 -2.88657986402541E-15 -1.23503637872169E-14"
+        rpy="0 0 0" />
+      <mass
+        value="1.09563043793944" />
+      <inertia
+        ixx="0.00189169725363894"
+        ixy="7.76790423997522E-19"
+        ixz="-8.49729634435965E-20"
+        iyy="0.00308146060670468"
+        iyz="-1.24287129790834E-18"
+        izz="0.00189169725363894" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://carver_pharmacy_description/meshes/right_drive_wheel_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://carver_pharmacy_description/meshes/right_drive_wheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_drive_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="0 -0.171 0"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="right_drive_wheel_link" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="left_drive_wheel_link">
+    <inertial>
+      <origin
+        xyz="-2.4980018054066E-16 2.44249065417534E-15 -1.29206541299443E-14"
+        rpy="0 0 0" />
+      <mass
+        value="1.09563043793944" />
+      <inertia
+        ixx="0.00189169725363894"
+        ixy="4.8060847950556E-20"
+        ixz="2.24832179721211E-19"
+        iyy="0.00308146060670467"
+        iyz="4.1436938209988E-21"
+        izz="0.00189169725363894" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://carver_pharmacy_description/meshes/left_drive_wheel_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://carver_pharmacy_description/meshes/left_drive_wheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_drive_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="0 0.171 0"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="left_drive_wheel_link" />
+    <axis
+      xyz="0 -1 0" />
+  </joint>
+  <link
+    name="front_lidar_link">
+    <inertial>
+      <origin
+        xyz="-0.00306773799727345 -6.73331979811342E-05 -0.0346525847984595"
+        rpy="0 0 0" />
+      <mass
+        value="0.517592796037573" />
+      <inertia
+        ixx="0.000273374727119128"
+        ixy="-7.81779478438876E-06"
+        ixz="-1.42697826267645E-06"
+        iyy="0.000316640161805957"
+        iyz="-4.54726296629849E-06"
+        izz="0.000487947982082821" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://carver_pharmacy_description/meshes/front_lidar_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://carver_pharmacy_description/meshes/front_lidar_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="front_lidar_joint"
+    type="fixed">
+    <origin
+      xyz="0.3493 0.2398 0.117"
+      rpy="3.1241 0 0.7854" />
+    <parent
+      link="base_link" />
+    <child
+      link="front_lidar_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="back_lidar_link">
+    <inertial>
+      <origin
+        xyz="-0.00306773831985518 -0.000673703170952777 -0.0346461316086151"
+        rpy="0 0 0" />
+      <mass
+        value="0.517592801246909" />
+      <inertia
+        ixx="0.000273374730896287"
+        ixy="-7.87857589709287E-06"
+        ixz="-1.29032161891845E-06"
+        iyy="0.000316533645014142"
+        iyz="-1.5552155939568E-06"
+        izz="0.0004880545058498" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://carver_pharmacy_description/meshes/back_lidar_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://carver_pharmacy_description/meshes/back_lidar_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="back_lidar_joint"
+    type="fixed">
+    <origin
+      xyz="-0.3603 -0.2398 0.117"
+      rpy="-3.1416 0 -2.3562" />
+    <parent
+      link="base_link" />
+    <child
+      link="back_lidar_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+</robot>
